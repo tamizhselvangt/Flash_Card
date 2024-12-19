@@ -7,7 +7,7 @@ import '../models/flash_card_model.dart';
 
 
 ///Flash Card item Contains s Flash CArd
-/// FlashCard Item Denotes the the Whole Component
+/// FlashCard Item Denotes the Root of the FlashCard Widget
 class FlashcardItem extends StatefulWidget {
 
   final Flashcard flashcard;
