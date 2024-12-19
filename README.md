@@ -18,5 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ##Screen Shots
 
-![Card Swipe Animation](https://github.com/user-attachments/assets/6137b99f-26fa-4032-be18-ba079e627ec3)
+
+
+https://github.com/user-attachments/assets/6a9ce6ee-cbca-49f4-ae28-f1dd3fe8e676
 
