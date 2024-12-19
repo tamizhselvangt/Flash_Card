@@ -4,9 +4,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import '../screens/Example.dart';
 
-/// UI flash card, commonly found in language teaching to children
+///This Flash Card Denotes the Rotatable Function Card
 class FlashCard extends StatefulWidget {
   /// constructor: Default height 200dp, width 200dp, duration  500 milliseconds
   const FlashCard(
@@ -156,13 +155,6 @@ class AnimatedCard extends StatelessWidget {
   final double width;
   final int currentIndex;
   final List<List<int>> colorPairs = [
-    // [0xFFE3DDD7, 0xFFC3B2A3], // Light Cyan and darker Cyan
-    // [0xFFCFD1D0, 0xFF414245],
-    // [0xFFECD2C9,0xFF9C5251,],
-    // [0xFFF4F8FA, 0xFF3E628F],
-
-    //
-    // Light Pink and darker Pink
     [0xFFE3DDD7, 0xFFC3B2A3], // Warm Stone Grey
     [0xFFE1E2E1, 0xFF414245], // Cool Charcoal
     [0xFFECD2C9, 0xFF9C5251], // Dusty Rose
@@ -226,8 +218,7 @@ class AnimatedCard extends StatelessWidget {
 }
 
 
-//Wavy Pointer for Design
-
+/// Wavy Pointer for Card Design
 class WavePainter extends CustomPainter {
   final int color;
 

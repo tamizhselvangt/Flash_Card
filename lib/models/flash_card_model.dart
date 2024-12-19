@@ -1,6 +1,4 @@
 
-
-
 class Flashcard {
   String id;
   String question;

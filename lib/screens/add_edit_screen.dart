@@ -10,10 +10,10 @@ class AddEditFlashcardScreen extends StatefulWidget {
   final Function(Flashcard) onSave;
 
   const AddEditFlashcardScreen({
-    Key? key,
+    super.key,
     this.initialFlashcard,
     required this.onSave,
-  }) : super(key: key);
+  });
 
   @override
   _AddEditFlashcardScreenState createState() => _AddEditFlashcardScreenState();
@@ -23,6 +23,7 @@ class _AddEditFlashcardScreenState extends State<AddEditFlashcardScreen> {
   late TextEditingController _questionController;
   late TextEditingController _answerController;
   final _formKey = GlobalKey<FormState>();
+
 
   @override
   void initState() {

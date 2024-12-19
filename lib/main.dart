@@ -1,7 +1,5 @@
-import 'package:flash_card/screens/Example.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_card/screens/home_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
 void main() {
@@ -9,7 +7,7 @@ void main() {
 }
 
 class FlashcardApp extends StatelessWidget {
-  const FlashcardApp({Key? key}) : super(key: key);
+  const FlashcardApp({super.key});
 
   @override
   Widget build(BuildContext context) {

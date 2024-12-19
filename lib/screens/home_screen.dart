@@ -12,7 +12,7 @@ import 'add_edit_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -20,8 +20,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  /// It store the actual FlashCards data as List
    List<Flashcard> _flashcards = [];
-
 
   @override
   void initState() {
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _loadFlashcards();
   }
 
-  // Load flashcards from SharedPreferences
+  /// Load flashcards from SharedPreferences
   Future<void> _loadFlashcards() async {
     final prefs = await SharedPreferences.getInstance();
     final String? flashcardsJson = prefs.getString('flashcards');
@@ -40,11 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
   }
+
+  ///Save FlashCards (Add, Delete, Edit)
    Future<void> _saveFlashcards() async {
      final prefs = await SharedPreferences.getInstance();
      final String encodedJson = jsonEncode(_flashcards.map((f) => f.toJson()).toList());
      await prefs.setString('flashcards', encodedJson);
    }
+
 
    void _addFlashcard(Flashcard flashcard) {
     setState(() {
@@ -53,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _saveFlashcards();
   }
 
+  /// This method is For Editing the Card (Update the Existing Data)
   void _updateFlashcard(Flashcard updatedFlashcard) {
     setState(() {
       final index = _flashcards.indexWhere((f) => f.id == updatedFlashcard.id);
@@ -70,12 +74,15 @@ class _HomeScreenState extends State<HomeScreen> {
     _saveFlashcards();
   }
 
+  /// Shows the AddEditFLashCard Screen as a Sheet
   void _showAddFlashcard() {
     showModalBottomSheet(context: context, builder: (context)=>AddEditFlashcardScreen(
               onSave: _addFlashcard,
             ),
    );
   }
+
+  ///Shows the AddEditFLashCard Screen as a Screen(Page) View
   // void _navigateToAddFlashcard() {
   //   Navigator.push(
   //     context,
@@ -89,8 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.sizeOf(context).height;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -119,6 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       )
+      ///Actual Data
           : ListView.builder(
         itemCount: _flashcards.length,
         itemBuilder: (context, index) {

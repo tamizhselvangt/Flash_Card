@@ -5,10 +5,16 @@ import 'package:flash_card/screens/add_edit_screen.dart';
 
 import '../models/flash_card_model.dart';
 
+
+///Flash Card item Contains s Flash CArd
+/// FlashCard Item Denotes the the Whole Component
 class FlashcardItem extends StatefulWidget {
+
   final Flashcard flashcard;
   final Function(Flashcard) onDelete;
   final Function(Flashcard) onUpdate;
+
+  ///Showing the Card No:
   final int total;
   final int currentIndex;
 
@@ -27,6 +33,7 @@ class FlashcardItem extends StatefulWidget {
 
 class _FlashcardItemState extends State<FlashcardItem> {
 
+  ///Edit Method will Show the AddEditFlashCart Screen(Sheet)
   void _editFlashcard() {
     showModalBottomSheet(
       context: context,
@@ -37,6 +44,8 @@ class _FlashcardItemState extends State<FlashcardItem> {
     );
   }
 
+
+  ///Alert Box Method
   void _confirmDelete() {
     showDialog(
       context: context,
@@ -72,12 +81,12 @@ class _FlashcardItemState extends State<FlashcardItem> {
       width: MediaQuery.of(context).size.width * 0.9,
       height:  MediaQuery.of(context).size.width * 0.6,
      currentIndex: widget.currentIndex,
-//Front Content (Question)
+/// Front Content (Question)
         frontWidget: FlashCardContent(widget: widget, onPressed: (){
           _confirmDelete();
         }, label: "Answer"),
 
-//Back Content (Answer)
+/// Back Content (Answer)
         backWidget: FlashCardContent(widget: widget, onPressed:(){
           _editFlashcard();
         }, label: "Question")
@@ -85,8 +94,7 @@ class _FlashcardItemState extends State<FlashcardItem> {
   }
 }
 
-
-// FlashCard Content. Front and Back (Question and Answer)
+/// FlashCard Content. Front and Back (Question and Answer)
 class FlashCardContent extends StatelessWidget {
 
   final dynamic onPressed;
