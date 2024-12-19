@@ -70,10 +70,14 @@ class _FlashcardItemState extends State<FlashcardItem> {
   Widget build(BuildContext context) {
     return FlashCard(
       width: MediaQuery.of(context).size.width * 0.9,
-        height:  MediaQuery.of(context).size.width * 0.6,
+      height:  MediaQuery.of(context).size.width * 0.6,
+     currentIndex: widget.currentIndex,
+//Front Content (Question)
         frontWidget: FlashCardContent(widget: widget, onPressed: (){
           _confirmDelete();
         }, label: "Answer"),
+
+//Back Content (Answer)
         backWidget: FlashCardContent(widget: widget, onPressed:(){
           _editFlashcard();
         }, label: "Question")
@@ -101,9 +105,10 @@ class FlashCardContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("${label}: ${widget.total}/${widget.currentIndex+1}",
+        Text("${label}: ${widget.currentIndex+1}/${widget.total}",
           style: const TextStyle(
-              fontSize: 16
+              fontSize: 16,
+            // color: Color(color)
           ),),
         Expanded(
           child: Center(
@@ -123,8 +128,12 @@ class FlashCardContent extends StatelessWidget {
               icon:  Icon(
                   size: 30,
                   label == "Question" ? Icons.edit_note_rounded : Icons.delete_forever_outlined,
-                  color: Colors.black45),
+                  color: Colors.black54,
+              ),
               onPressed: onPressed,
+              style: IconButton.styleFrom(
+                backgroundColor: Colors.white24
+              ),
             ),
           ],
         )
