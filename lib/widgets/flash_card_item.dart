@@ -108,15 +108,17 @@ class FlashCardContent extends StatelessWidget {
         Text("${label}: ${widget.currentIndex+1}/${widget.total}",
           style: const TextStyle(
               fontSize: 16,
+              fontFamily: "Helvetica"
             // color: Color(color)
           ),),
         Expanded(
           child: Center(
             child: Text(
              label == "Question" ? widget.flashcard.question : widget.flashcard.answer,
-              style: const TextStyle(
+              style:  TextStyle(
                 color:  Colors.black,
-                fontSize: 20,
+                fontFamily: "Helvetica",
+                fontSize:  label == "Question" ? 20 : 22,
               ),
             ),
           ),

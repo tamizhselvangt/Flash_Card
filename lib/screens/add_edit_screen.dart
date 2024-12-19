@@ -63,6 +63,7 @@ class _AddEditFlashcardScreenState extends State<AddEditFlashcardScreen> {
   Widget build(BuildContext context) {
     return Container(
         decoration: const BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight:Radius.circular(20)
@@ -89,7 +90,7 @@ class _AddEditFlashcardScreenState extends State<AddEditFlashcardScreen> {
                   children: [
                     CustomTextField(answerController: _questionController, label: "Question",),
                     const SizedBox(height: 16),
-                    CustomTextField(answerController: _answerController, label: "Answers"),
+                    CustomTextField(answerController: _answerController, label: "Answer"),
                     const SizedBox(height: 16),
                     CustomButton(onPressed:_saveFlashcard, text: "Save Flashcard")
                   ],
@@ -123,26 +124,43 @@ class CustomTextField extends StatelessWidget {
       ),
       controller: _answerController,
       decoration: InputDecoration(
-        enabledBorder: const OutlineInputBorder(
+        enabledBorder:  const OutlineInputBorder(
             borderSide: BorderSide(
-                color: Colors.black
-            )
+                color: Colors.black,
+
+            ),
+          borderRadius: BorderRadius.all(Radius.circular(20))
         ),
         labelText: label,
         labelStyle: const TextStyle(
-            color: Colors.black45,
+            color: Colors.black54,
             fontSize: 18
+        ),
+        errorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+                color: Color(0xffdc3838),
+                width: 1.5
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(20))
+        ),
+        focusedErrorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+                color: Color(0xffE05151),
+                width: 2.5
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(15))
         ),
         focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
                 color: Colors.black,
                 width: 2
-            )
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(15))
         ),
       ),
       validator: (value) {
         if (value == null || value.trim().isEmpty) {
-          return 'Please enter an answer';
+          return 'Please enter an ${label}';
         }
         return null;
       },

@@ -103,6 +103,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset("assets/images/add-file.png",
+            scale: 0.2,
+            width: 100,),
             const Text(
               'No flashcards yet!',
              style:  TextStyle(
